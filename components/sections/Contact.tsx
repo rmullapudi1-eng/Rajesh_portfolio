@@ -459,6 +459,9 @@ export default function Contact() {
                               <p style={{ fontSize: '0.72rem', color: '#8ab4c8' }}>
                                 We&apos;ll send a 6-digit code to confirm your email is real.
                               </p>
+                              <p style={{ fontSize: '0.72rem', color: '#4a7a9b', marginTop: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                                <span>📄</span> You can download resume once email is verified.
+                              </p>
                             </div>
                             <Button
                               type="button"
@@ -607,9 +610,45 @@ export default function Contact() {
                           * Your contact details are not publicly displayed.
                         </p>
 
-                        <Button type="submit" variant="primary" disabled={submitting} className="w-full justify-center">
-                          {submitting ? 'Sending...' : 'Send Message →'}
-                        </Button>
+                        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                          <Button type="submit" variant="primary" disabled={submitting} className="justify-center" style={{ flex: 1 }}>
+                            {submitting ? 'Sending...' : 'Send Message →'}
+                          </Button>
+                          <a
+                            href="/assets/resume.pdf"
+                            download="Rajesh_Mullapudi_Resume.pdf"
+                            style={{
+                              flex: 1,
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              gap: '0.4rem',
+                              padding: '0.75rem 1.25rem',
+                              borderRadius: '0.5rem',
+                              border: '1px solid #00d4ff',
+                              color: '#00d4ff',
+                              fontSize: '0.875rem',
+                              fontWeight: 600,
+                              fontFamily: 'Inter, sans-serif',
+                              textDecoration: 'none',
+                              transition: 'all 0.2s ease',
+                              backgroundColor: 'transparent',
+                              minWidth: '140px',
+                            }}
+                            onMouseEnter={(e) => {
+                              const el = e.currentTarget as HTMLAnchorElement
+                              el.style.backgroundColor = '#00d4ff'
+                              el.style.color = '#050a0e'
+                            }}
+                            onMouseLeave={(e) => {
+                              const el = e.currentTarget as HTMLAnchorElement
+                              el.style.backgroundColor = 'transparent'
+                              el.style.color = '#00d4ff'
+                            }}
+                          >
+                            ↓ Download Resume
+                          </a>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>

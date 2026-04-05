@@ -8,6 +8,7 @@ interface ButtonProps {
   href?: string
   variant?: 'primary' | 'outline' | 'accent'
   className?: string
+  style?: React.CSSProperties
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
 }
@@ -18,6 +19,7 @@ export default function Button({
   href,
   variant = 'primary',
   className = '',
+  style,
   type = 'button',
   disabled = false,
 }: ButtonProps) {
@@ -40,6 +42,7 @@ export default function Button({
       <motion.a
         href={href}
         className={cls}
+        style={style}
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
       >
@@ -53,6 +56,7 @@ export default function Button({
       type={type}
       onClick={onClick}
       className={cls}
+      style={style}
       disabled={disabled}
       whileHover={disabled ? {} : { scale: 1.03 }}
       whileTap={disabled ? {} : { scale: 0.97 }}
