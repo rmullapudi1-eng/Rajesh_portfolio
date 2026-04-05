@@ -4,6 +4,7 @@ const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
 const CONTACT_TID = process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID!
 const RESUME_TID = process.env.NEXT_PUBLIC_EMAILJS_RESUME_TEMPLATE_ID!
+const OTP_TID = process.env.NEXT_PUBLIC_EMAILJS_OTP_TEMPLATE_ID!
 
 export interface ContactPayload {
   from_name: string
@@ -21,6 +22,17 @@ export interface ResumeGatePayload {
 export async function sendContactEmail(payload: ContactPayload): Promise<void> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   await emailjs.send(SERVICE_ID, CONTACT_TID, payload as any, PUBLIC_KEY)
+}
+
+export interface OTPPayload {
+  user_name: string
+  user_email: string
+  otp_code: string
+}
+
+export async function sendOTPEmail(payload: OTPPayload): Promise<void> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  await emailjs.send(SERVICE_ID, OTP_TID, payload as any, PUBLIC_KEY)
 }
 
 export async function sendResumeGateEmail(payload: ResumeGatePayload): Promise<void> {
