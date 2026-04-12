@@ -144,9 +144,6 @@ export default function Hero() {
             <Button onClick={() => handleScroll('#projects')} variant="primary">
               View My Work →
             </Button>
-            <Button onClick={() => handleScroll('#contact')} variant="outline">
-              Download Resume
-            </Button>
           </motion.div>
 
           {/* Stats row */}
